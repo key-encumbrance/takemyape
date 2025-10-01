@@ -8,7 +8,7 @@ Liquefaction repository: https://github.com/key-encumbrance/liquefaction
 
 This project demonstrates NFT liquefaction of a Bored Ape NFT that lets anyone become its on-chain owner. It consists of:
 
-- Smart contracts for encumbered wallets and NFT auctions
+- Oasis Sapphire smart contracts for encumbered wallets and NFT auctions
 - A frontend interface allowing users to:
   - Create encumbered wallets
   - Claim temporary ownership of a Bored Ape NFT
