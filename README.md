@@ -1,14 +1,17 @@
-# Liquefaction NFT Auction Demo
+# Liquefaction "Take My Ape" Demo
+
+Site: https://takemyape.com
+
+Liquefaction repository: https://github.com/key-encumbrance/liquefaction
 
 ## Overview
 
-This project demonstrates NFT liquefaction with a focus on NFT auctions with temporary ownership. It consists of:
+This project demonstrates NFT liquefaction of a Bored Ape NFT that lets anyone become its on-chain owner. It consists of:
 
 - Smart contracts for encumbered wallets and NFT auctions
 - A frontend interface allowing users to:
   - Create encumbered wallets
-  - Participate in NFT auctions
-  - Claim temporary ownership of NFTs
+  - Claim temporary ownership of a Bored Ape NFT
   - Connect via WalletConnect to use the NFT in token-gated applications
 
 ## Complete Setup Instructions
@@ -80,11 +83,9 @@ npx next start
 
 ## Key Features
 
-- **Encumbered Wallets**: Create wallets with specific usage constraints
-- **NFT Auction System**: Bid for temporary ownership of NFTs
-- **WalletConnect Integration**: Use temporarily owned NFTs in any compatible application
-- **Auction Timer**: Shows remaining time in current auction
-- **Auction Finalization**: Transfer ownership to winners and start new auctions
+- Encumbered Wallets: Create wallets with specific usage constraints
+- NFT Auction System: Bid for temporary ownership of NFTs
+- WalletConnect Integration: Use temporarily owned NFTs in any compatible application
 
 ## Smart Contract Architecture
 
