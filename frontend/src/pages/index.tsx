@@ -39,7 +39,7 @@ import {
 } from "@/utils/networkConfig";
 
 // Number of blocks back to search for transfer logs
-const MAX_LOGS_SEARCH_BLOCK_COUNT = 99_900;
+const MAX_LOGS_SEARCH_BLOCK_COUNT = 199_900;
 
 function throwIfEmpty<T>(val: T | undefined | null, valStr: string): T {
   if (val === undefined || val === null) {

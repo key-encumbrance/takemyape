@@ -47,7 +47,7 @@ const ethereumChain = {
 export const config = createConfig({
   chains: [mainnet, oasisChain, ethereumChain],
   transports: {
-    [mainnet.id]: http("https://eth-pokt.nodies.app"),
+    [mainnet.id]: http(networkConfig.ethereum.rpcUrl),
     [oasisChain.id]: http(networkConfig.oasis.rpcUrl),
     [ethereumChain.id]: http(networkConfig.ethereum.rpcUrl),
   },

@@ -149,7 +149,7 @@ export const networkConfigs: Record<NetworkEnv, NetworkConfig> = {
   prod: {
     ethereum: {
       chainId: 1,
-      rpcUrl: "https://eth-pokt.nodies.app",
+      rpcUrl: "https://eth.meowrpc.com",
       name: "Ethereum Mainnet",
       currency: {
         name: "Ether",
