@@ -210,6 +210,8 @@ export default function Home() {
   const [targetChainId, setTargetChainId] = useState<number | null>(null);
   const [publicProvider, setPublicProvider] =
     useState<ethers.JsonRpcProvider | null>(null);
+  const [rawBlockProvider, setRawBlockProvider] =
+    useState<ethers.JsonRpcProvider | null>(null);
   const [previousOwner, setPreviousOwner] = useState("");
   const [nftId, setNftId] = useState<number | null>(null);
   const [isProving, setIsProving] = useState(false);
@@ -695,6 +697,16 @@ export default function Home() {
         );
         setPublicProvider(publicProvider);
         console.log("Public provider set up");
+
+        const rawBlockProvider = new ethers.JsonRpcProvider(
+          "https://eth.api.onfinality.io/public",
+          {
+            chainId: networkConfig.ethereum.chainId,
+            name: networkConfig.ethereum.name,
+          },
+        );
+        setRawBlockProvider(rawBlockProvider);
+        console.log("Raw block provider set up");
       } catch (error) {
         console.error("Failed to set up providers:", error);
       }
@@ -798,7 +810,7 @@ export default function Home() {
           // Get transaction inclusion proof
           const { signedTxFormatted, inclusionProof, proofBlockNumber } =
             await getTxInclusion(
-              publicProvider,
+              rawBlockProvider,
               lastTransferLog.transactionHash,
             );
           // Prove transaction inclusion
@@ -1198,10 +1210,7 @@ export default function Home() {
       signedTxFormatted: signedTxFormatted,
       inclusionProof: inclusionProof,
       proofBlockNumber: proofBlockNumber,
-    } = await getTxInclusion(
-      new ethers.JsonRpcProvider(networkConfig.ethereum.rpcUrl),
-      txHash,
-    );
+    } = await getTxInclusion(rawBlockProvider, txHash);
 
     setFundingStep("Switching back to Oasis network...");
     // Create a new provider for the Oasis network
@@ -1613,8 +1622,8 @@ export default function Home() {
                 </li>
                 <li>
                   The policies controlling your encumbered account in this demo
-                  expire after 4 weeks. If your encumbered account is more
-                  than 4 weeks old, create a new encumbered account.
+                  expire after 4 weeks. If your encumbered account is more than
+                  4 weeks old, create a new encumbered account.
                 </li>
               </ul>
             </div>
